@@ -45,6 +45,13 @@ def getNumInput(prompt: str) -> float:
         except ValueError:
            print(f"Invalid input; try again. ")
 
+def getStrInput(prompt: str) -> float:
+    while(True):
+        val=str(input(prompt))
+        if(val=="add" or val=="subtract" or val=="multiply" or val=="divide"):
+            return val
+        print(f"Invalid input; try again. ")
+
 
 def main():
     
@@ -53,7 +60,7 @@ def main():
     # Ask the user for sample input  
     num1= getNumInput("Enter the first Number: ")
     num2=getNumInput("Enter the second number: ")
-    operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    operation = getStrInput("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
